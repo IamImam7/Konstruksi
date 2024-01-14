@@ -4,7 +4,7 @@
     if (isset($_GET['id'])){
         $id = ($_GET["id"]);
 
-        $query = "SELECT * FROM karakter WHERE id='$id'";
+        $query = "SELECT * FROM karakter_hsr WHERE id='$id'";
         $result = mysqli_query($conn, $query);
         
         if(!$result){
@@ -99,7 +99,16 @@
           <input type="file" name="icon" />
           <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
         </div>
-        
+        <div>
+          <label>Full Image</label>
+          <img src="../karakter/full_image/<?php echo $data['full_image']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
+          <input type="file" name="icon" />
+          <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
+        </div>
+        <div>
+          <label>Deskripsi</label>
+          <input type="text" name="deskripsi" value="<?php echo $data['deskripsi']; ?>" autofocus="" required="" />
+        </div>
         
         <div>
          <button type="submit">Simpan Perubahan</button>

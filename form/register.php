@@ -14,10 +14,10 @@ if (isset($_POST['submit'])) {
     $level = "user";
 
 	if ($password == $cpassword) {
-		$sql = "SELECT * FROM users WHERE username='$username'";
+		$sql = "SELECT * FROM userss WHERE username='$username'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO users (nickname, username, password, level)
+			$sql = "INSERT INTO userss (nickname, username, password, level)
 					VALUES ('$nickname','$username', '$password', '$level')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {

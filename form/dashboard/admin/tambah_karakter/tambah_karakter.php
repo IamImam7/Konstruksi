@@ -71,6 +71,15 @@
             <label>Icon</label>
             <input type="file" name="icon" />
         </div>
+        <div>
+            <label>Full Image</label>
+            <input type="file" name="fulimage" />
+        </div>
+
+        <div>
+            <label>Deskripsi</label>
+            <textarea name="deskripsi" autofocus="" required=""></textarea>
+        </div>
 
         <div>
             <button type="submit">Simpan</button>

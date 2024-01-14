@@ -178,12 +178,14 @@ a {
                         <th>Path</th>
                         <th>Elemen</th>
                         <th>Icon</th>
+                        <th>Full Image</th>
+                        <th>Deskripsi</th>
                         <th>Action</th>
                     </tr>
                 </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM karakter ORDER BY id ASC";
+                $query = "SELECT * FROM karakter_hsr ORDER BY nama ASC";
 
                 $result = mysqli_query($conn, $query);
 
@@ -201,7 +203,9 @@ a {
                     <td><?php echo $row['nama']; ?></td>
                     <td><img src="karakter/path/<?php echo $row['path_']; ?>" style="width: 50px;"></td>
                     <td><img src="karakter/elemen/<?php echo $row['elemen']; ?>" style="width: 50px;"></td>
-                    <td><img src="karakter/icon/<?php echo $row['icon']; ?>" style="width: 120px;"></td>
+                    <td><img src="karakter/icon/<?php echo $row['icon']; ?>" style="width: 70px;"></td>
+                    <td><img src="karakter/full_image/<?php echo $row['full_image']; ?>" style="width: 150px;"></td>
+                    <td><?php echo $row['deskripsi']; ?></td>
                     <td>
                         <a href="edit_karakter/edit_karakter.php?id=<?php echo $row['id']; ?>">Edit</a>
                         <a href="delete_karakter/delete_karakter.php?id=<?php echo $row['id'];?>">Delete</a>

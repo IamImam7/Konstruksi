@@ -182,7 +182,7 @@ a {
                 </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM relic ORDER BY id ASC";
+                $query = "SELECT * FROM relic_hsr ORDER BY nama ASC";
                 $result = mysqli_query($conn, $query);
 
                 if(!$result){

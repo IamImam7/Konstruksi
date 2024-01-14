@@ -3,7 +3,7 @@
 
      $id = $_GET["id"];
 
-     $query = "DELETE FROM relic WHERE id='$id' ";
+     $query = "DELETE FROM relic_hsr WHERE id='$id' ";
      $hasil_query = mysqli_query($conn, $query);
 
      if(!$hasil_query) {

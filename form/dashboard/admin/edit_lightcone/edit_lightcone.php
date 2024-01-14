@@ -4,7 +4,7 @@
     if (isset($_GET['id'])){
         $id = ($_GET["id"]);
 
-        $query = "SELECT * FROM lightcone WHERE id='$id'";
+        $query = "SELECT * FROM lightcone_hsr WHERE id='$id'";
         $result = mysqli_query($conn, $query);
         
         if(!$result){
@@ -85,6 +85,10 @@
           <img src="../LightCones/<?php echo $data['gambar']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
           <input type="file" name="gambar" />
           <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
+        </div>
+        <div>
+          <label>Judul</label>
+         <input type="text" name="judul" required=""value="<?php echo $data['judul'];?>" />
         </div>
         <div>
           <label>Path</label>

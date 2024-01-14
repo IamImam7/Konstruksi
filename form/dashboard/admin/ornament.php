@@ -181,7 +181,7 @@ a {
                 </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM ornament ORDER BY id ASC";
+                $query = "SELECT * FROM ornament_hsr ORDER BY id ASC";
                 $result = mysqli_query($conn, $query);
 
                 if(!$result){

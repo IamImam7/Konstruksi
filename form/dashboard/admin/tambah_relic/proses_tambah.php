@@ -11,12 +11,12 @@
         $x = explode('.',$gambar);
         $ekstensi = strtolower(end($x));
         $file_tmp = $_FILES['gambar']['tmp_name'];   
-        $angka_acak     = rand(1,999);
-        $nama_gambar_baru = $angka_acak.'-'.$gambar;
+        $nama_gambar_baru = $gambar; // Use the original image name without adding a random number
+
         if(in_array($ekstensi, $ekstensi_allowed) === true){
             move_uploaded_file($file_tmp, '../Relics/'.$nama_gambar_baru);
 
-            $query = "INSERT INTO relic (gambar, set2, set4, nama) VALUES ('$nama_gambar_baru','$set2','$set4','$nama')";
+            $query = "INSERT INTO relic_hsr (gambar, set2, set4, nama) VALUES ('$nama_gambar_baru','$set2','$set4','$nama')";
 
             $result = mysqli_query($conn, $query);
 
@@ -25,11 +25,11 @@
             } else{
                 echo "<script>alert('Data berhasil ditambah');window.location='../relic.php';</script>";
             }
-        }else{
+        } else {
             echo "<script>alert('Eksternsi Gambar hanya jpg / png');window.location='../relic.php';</script>";
         }
-    }else{
-        $query = "INSERT INTO relic (gambar, set2, set4, nama) VALUES ('$nama_gambar_baru','$set2','$set4','$nama')";
+    } else {
+        $query = "INSERT INTO relic_hsr (gambar, set2, set4, nama) VALUES ('$nama_gambar_baru','$set2','$set4','$nama')";
 
         $result = mysqli_query($conn, $query);
 

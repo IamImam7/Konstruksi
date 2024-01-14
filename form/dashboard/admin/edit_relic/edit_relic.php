@@ -4,7 +4,7 @@
     if (isset($_GET['id'])){
         $id = ($_GET["id"]);
 
-        $query = "SELECT * FROM relic WHERE id='$id'";
+        $query = "SELECT * FROM relic_hsr WHERE id='$id'";
         $result = mysqli_query($conn, $query);
         
         if(!$result){

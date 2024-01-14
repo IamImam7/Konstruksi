@@ -175,6 +175,7 @@ a {
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Gambar</th>
+                        <th>Judul</th>
                         <th>Path</th>
                         <th>Efek</th>
                         <th>Action</th>
@@ -182,7 +183,7 @@ a {
                 </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM lightcone ORDER BY id ASC";
+                $query = "SELECT * FROM lightcone_hsr ORDER BY nama ASC";
                 $result = mysqli_query($conn, $query);
 
                 if(!$result){
@@ -198,6 +199,7 @@ a {
                     <td><?php echo $no; ?></td>
                     <td><?php echo $row['nama']; ?></td>
                     <td><img src="LightCones/<?php echo $row['gambar']; ?>" style="width: 120px;"></td>
+                    <td><?php echo $row['judul']; ?></td>
                     <td><?php echo $row['path_']; ?></td>
                     <td><?php echo $row['efek']; ?></td>
                     <td>

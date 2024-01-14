@@ -72,7 +72,7 @@ include '../form/koneksi.php'
                 <h1 class="content-title" style="text-align: center;color:#ffffff;">Honkai: Star Rail Light Cones List</h1>
     </div>
     <?php
-       $query = "SELECT * FROM lightcone ORDER BY id ASC";
+       $query = "SELECT * FROM lightcone_hsr ORDER BY nama ASC";
        $result = mysqli_query($conn, $query);
        if(!$result){
         die("Query Error: ".mysqli_errno($conn)."-".mysqli_error($conn));
@@ -86,6 +86,7 @@ include '../form/koneksi.php'
                   <div class="light-cones-body">
                     <div class="light-cones-name"><?php echo $row['nama']; ?></div>
                     <div class="light-cones-path"><?php echo $row['path_']; ?></div>
+                    <div class="light-cones-judul" style ="color: #30d19e"><?php echo $row['judul']; ?></div>
                     <p class="light-cones-description">
                       <?php echo $row['efek']; ?> </p>
                   </div>

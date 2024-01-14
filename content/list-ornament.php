@@ -78,7 +78,7 @@
               <div class="wrapper-lb1"><div id="nn_lb1"></div></div>
               <div class="wrapper-mpu1"><div id="nn_mobile_mpu1"></div></div>
               <?php
-                $query = "SELECT * FROM ornament ORDER BY id ASC";
+                $query = "SELECT * FROM ornament_hsr ORDER BY nama ASC";
 
                 $result = mysqli_query($conn, $query);
                 if(!$result){

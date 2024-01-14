@@ -60,6 +60,11 @@
             <label>Gambar Lightcone</label>
             <input type="file" name="gambar" required=""  />
         </div>
+        
+        <div>
+            <label>Judul</label>
+            <input type="text" name="judul" />
+        </div>
 
         <div>
             <label>Path</label>
@@ -68,8 +73,10 @@
 
         <div>
             <label>Efek</label>
-            <input type="text" name="efek" />
+            <textarea name="efek" autofocus="" required=""></textarea>
         </div>
+
+        
 
         <div>
             <button type="submit">Simpan</button>

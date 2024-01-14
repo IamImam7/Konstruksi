@@ -9,13 +9,13 @@
         $ekstensi_allowed = array('png','jpg');
         $x = explode('.',$gambar);
         $ekstensi = strtolower(end($x));
-        $file_tmp = $_FILES['gambar']['tmp_name'];   
-        $angka_acak     = rand(1,999);
-        $nama_gambar_baru = $angka_acak.'-'.$gambar;
+        $file_tmp = $_FILES['gambar']['tmp_name'];
+        $nama_gambar_baru = $gambar; // Use the original image name without adding a random number
+
         if(in_array($ekstensi, $ekstensi_allowed) === true){
             move_uploaded_file($file_tmp, '../Ornaments/'.$nama_gambar_baru);
 
-            $query = "INSERT INTO ornament (nama, gambar, efek) VALUES ('$nama','$nama_gambar_baru','$efek')";
+            $query = "INSERT INTO ornament_hsr (nama, gambar, efek) VALUES ('$nama','$nama_gambar_baru','$efek')";
 
             $result = mysqli_query($conn, $query);
 
@@ -24,11 +24,11 @@
             } else{
                 echo "<script>alert('Data berhasil ditambah');window.location='../ornament.php';</script>";
             }
-        }else{
+        } else {
             echo "<script>alert('Eksternsi Gambar hanya jpg / png');window.location='../ornament.php';</script>";
         }
-    }else{
-        $query = "INSERT INTO ornament (nama, gambar, efek) VALUES ('$nama','$nama_gambar_baru','$efek')";
+    } else {
+        $query = "INSERT INTO ornament_hsr (nama, gambar, efek) VALUES ('$nama','$nama_gambar_baru','$efek')";
 
         $result = mysqli_query($conn, $query);
 
