@@ -136,6 +136,7 @@ a {
         <h2>Admin Page</h2>
         <ul>
         <li><a href="admin.php">Home</a></li>
+            <li><a href="aeon.php">Aeon</a></li>
             <li><a href="character.php">Karakter</a></li>
             <li><a href="lightcone.php">Update Lightcone</a></li>
             <li><a href="relic.php">Update Relic</a></li>
