@@ -29,32 +29,33 @@
     </a>
     <!-- Navbar Menu -->
     <div class="collapse navbar-collapse" >
-      <ul class="nav nav-tabs navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="list-karakter.html">Karakter</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="list-lightcone.php">Lightcone</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
-            Equipment</a>
-            <ul class="dropdown-menu" style="font-size: 20px; font-weight: bold;">
-              <li><a class="dropdown-item" href="list-relic.php">Relic</a></li>
-              <li><a class="dropdown-item" href="list-ornament.php">Ornament</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="status.html">Istilah & Status</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="basic.html">Basic Gameplay</a>
-        </li>
-        
-      </ul>
+    <ul class="nav nav-tabs navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="index.html">Home</a>
+              </li>               
+              <li class="nav-item">
+                <a class="nav-link" href="content/list-karakter.html">Karakter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="content/list-lightcone.php">Lightcone</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> Equipment</a>
+                <ul class="dropdown-menu" style="font-size: 20px; font-weight: bold">
+                  <li><a class="dropdown-item" href="content/list-relic.php">Relic</a></li>
+                  <li><a class="dropdown-item active" href="content/list-ornament.php">Ornament</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="content/status.php">Istilah & Status</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="content/basic.html">Basic Gameplay</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="content/list-tierlist.php">Tierlist</a>
+              </li>
+            </ul>
       <!-- Sign up and login Navbar -->
       <a href="../konstruksi/form/register.php" class="action_btn">Create Party Setup</a>
     <div class="toggle_btn">
