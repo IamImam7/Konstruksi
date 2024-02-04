@@ -1,68 +1,67 @@
 <?php
     include '../../../koneksi.php';
 
+    $id = $_POST['id'];
     $nama = $_POST['nama'];
-    $path = $_FILES['path_']['name'];
-    $elemen = $_FILES['elemen']['name'];
-    $icon = $_FILES['icon']['name'];
-    $fulimage = $_FILES['fulimage']['name'];
+    $path_name = $_POST['path_name'];
     $deskripsi = $_POST['deskripsi'];
 
-    if($path != "" && $elemen != "" && $icon != "" && $fulimage != ""){
-        $ekstensi_path_allowed = array('png', 'jpg');
-        $ekstensi_elemen_allowed = array('png', 'jpg');
-        $ekstensi_icon_allowed = array('png', 'jpg');
-        $ekstensi_full_allowed = array('png', 'jpg');
+    $query = "UPDATE karakter_hsr SET nama = '$nama', path_name = '$path_name', deskripsi = '$deskripsi' WHERE id = '$id'";
+    $result = mysqli_query($conn,$query);
 
-        $x_path = explode('.', $path);
-        $x_elemen = explode('.', $elemen);
-        $x_icon = explode('.', $icon);
-        $x_full = explode('.', $fulimage);
-
-        $ekstensi_path = strtolower(end($x_path));
-        $ekstensi_elemen = strtolower(end($x_elemen));
-        $ekstensi_icon = strtolower(end($x_icon));
-        $ekstensi_full = strtolower(end($x_full));
-
-        $file_tmp_path = $_FILES['path_']['tmp_name'];
-        $file_tmp_elemen = $_FILES['elemen']['tmp_name'];
-        $file_tmp_icon = $_FILES['icon']['tmp_name'];
-        $file_tmp_full = $_FILES['fulimage']['tmp_name']; 
-
-        $angka_acak     = rand(1,999);
-        $nama_gambar_path = $angka_acak.'-'.$path;
-        $nama_gambar_elemen = $angka_acak.'-'.$elemen;
-        $nama_gambar_icon = $angka_acak.'-'.$icon;
-        $nama_gambar_full = $angka_acak. '-'. $fulimage;
-
-        if (in_array($ekstensi_path, $ekstensi_path_allowed) && 
-            in_array($ekstensi_elemen, $ekstensi_elemen_allowed) && 
-            in_array($ekstensi_icon, $ekstensi_icon_allowed) &&
-            in_array($ekstensi_full, $ekstensi_full_allowed)===true) {
-            move_uploaded_file($file_tmp_path, '../karakter/path/'.$nama_gambar_path);
-            move_uploaded_file($file_tmp_elemen, '../karakter/elemen/'.$nama_gambar_elemen);
-            move_uploaded_file($file_tmp_icon, '../karakter/icon/'.$nama_gambar_icon);
-            move_uploaded_file($file_tmp_full, '../karakter/full_image/' . $fulimage);
-            $query = "UPDATE karakter_hsr set nama = '$nama', path_ = '$path', elemen = '$elemen', icon = '$icon', full_image = '$fulimage', deskripsi = '$deskripsi'";
-
-            $result = mysqli_query($conn, $query);
-            
-            if(!$result){
-                die("Query Error : ".mysqli_errno($conn)." - ".mysqli_error($conn));
-            } else{
-                echo "<script>alert('Data berhasil diubah.');window.location='../character.php';</script>";
+    if(!$result){
+        die ("Query gagal dijalankan: ".mysqli_errno($conn)." - ".mysqli_error($conn));
+    } else {
+        if(!empty($_FILES['path_']['name'])){
+            $path = $_FILES['path_']['name'];
+            $x_path = explode('.',$path);
+            $ekstensi_path = strtolower(end($x_path));
+            $file_tmp_path = $_FILES['path_']['tmp_name'];
+            $nama_gambar_path = rand(1,999) . '-' .$path;
+            if(in_array($ekstensi_path, array('png','jpg'))){
+                move_uploaded_file($file_tmp_path, '../karakter/path/'.$nama_gambar_path);
+                $query = "UPDATE karakter_hsr SET path_ = '$nama_gambar_path' WHERE id = '$id'";
+                $result = mysqli_query($conn,$query);
             }
-        }else{
-            echo "<script>alert('Eksternsi Gambar hanya jpg / png');window.location='../character.php';</script>";
         }
-    }else{
-        $query = "UPDATE karakter_hsr set nama = '$nama', path_ = '$path', elemen = '$elemen', icon = '$icon', full_image = '$fulimage', deskripsi = '$deskripsi'";
+        // Repeat the above process for 'elemen', 'icon', and 'fulimage'
+        if(!empty($_FILES['elemen']['name'])){
+            $elemen = $_FILES['elemen']['name'];
+            $x_elemen = explode('.',$elemen);
+            $ekstensi_elemen = strtolower(end($x_elemen));
+            $file_tmp_elemen = $_FILES['elemen']['tmp_name'];
+            $nama_gambar_elemen = rand(1,999) . '-' .$elemen;
+            if(in_array($ekstensi_elemen, array('png','jpg'))){
+                move_uploaded_file($file_tmp_elemen, '../karakter/path/'.$nama_gambar_elemen);
+                $query = "UPDATE karakter_hsr SET path_ = '$nama_gambar_path' WHERE id = '$id'";
+                $result = mysqli_query($conn,$query);
+            }
+        }
+        if(!empty($_FILES['icon']['name'])){
+            $icon = $_FILES['icon']['name'];
+            $x_icon = explode('.',$icon);
+            $ekstensi_icon = strtolower(end($x_icon));
+            $file_tmp_icon = $_FILES['icon']['tmp_name'];
+            $nama_gambar_icon = rand(1,999) . '-' .$icon;
+            if(in_array($ekstensi_icon, array('png','jpg'))){
+                move_uploaded_file($file_tmp_icon, '../karakter/icon/'.$nama_gambar_icon);
+                $query = "UPDATE karakter_hsr SET icon = '$nama_gambar_icon' WHERE id = '$id'";
+                $result = mysqli_query($conn,$query);
+            }
+        }
+        if(!empty($_FILES['fulimage']['name'])){
+            $fulimage = $_FILES['fulimage']['name'];
+            $x_fulimage = explode('.',$fulimage);
+            $ekstensi_fulimage = strtolower(end($x_fulimage));
+            $file_tmp_fulimage = $_FILES['fulimage']['tmp_name'];
+            $nama_gambar_fulimage = rand(1,999) . '-' .$fulimage;
+            if(in_array($ekstensi_fulimage, array('png','jpg'))){
+                move_uploaded_file($file_tmp_fulimage, '../karakter/full_image/'.$nama_gambar_fulimage);
+                $query = "UPDATE karakter_hsr SET fulimage = '$nama_gambar_fulimage' WHERE id = '$id'";
+                $result = mysqli_query($conn,$query);
+            }
+        }
 
-        $result = mysqli_query($conn, $query);
-        if(!$result){
-            die("Query Error : ".mysqli_errno($conn)." - ".mysqli_error($conn));
-        } else{
-            echo "<script>alert('Data berhasil ditambah');window.location='../character.php';</script>";
-        }
+        echo "<script>alert('Data berhasil diubah.');window.location='../character.php';</script>";
     }
 ?>

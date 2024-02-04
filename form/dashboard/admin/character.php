@@ -47,6 +47,7 @@ body{
   background: #4b4276;
   padding: 30px 0px;
   position: fixed;
+  overflow-y: auto;
 }
 
 .wrapper .sidebar h2{
@@ -177,6 +178,7 @@ a {
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Path</th>
+                        <th>Nama Path</th>
                         <th>Elemen</th>
                         <th>Icon</th>
                         <th>Full Image</th>
@@ -203,6 +205,7 @@ a {
                     <td><?php echo $no; ?></td>
                     <td><?php echo $row['nama']; ?></td>
                     <td><img src="karakter/path/<?php echo $row['path_']; ?>" style="width: 50px;"></td>
+                    <td><?php echo $row['path_name']; ?></td>
                     <td><img src="karakter/elemen/<?php echo $row['elemen']; ?>" style="width: 50px;"></td>
                     <td><img src="karakter/icon/<?php echo $row['icon']; ?>" style="width: 70px;"></td>
                     <td><img src="karakter/full_image/<?php echo $row['full_image']; ?>" style="width: 150px;"></td>

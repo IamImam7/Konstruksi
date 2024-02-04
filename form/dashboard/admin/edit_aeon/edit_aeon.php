@@ -77,28 +77,38 @@
         <!-- menampung nilai id produk yang akan di edit -->
         <input name="id" value="<?php echo $data['id']; ?>"  hidden />
         <div>
-          <label>Nama Ornament</label>
+          <label>Nama Aeon</label>
           <input type="text" name="nama" value="<?php echo $data['nama']; ?>" autofocus="" required="" />
         </div>
         <div>
-          <label>Gambar Relic</label>
-          <img src="../aeon/<?php echo $data['gambar']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
-          <input type="file" name="gambar" />
+          <label>Gambar Aeon</label>
+          <img src="../aeon/aeon/<?php echo $data['gambar_aeon']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
+          <input type="file" name="gambar_aeon" />
           <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
         </div>
         <div>
           <label>Path</label>
          <input type="text" name="path_" required=""value="<?php echo $data['path_']; ?>" />
         </div>
-
         <div>
-          <label>Deskripsi</label>
-          <textarea name="deskripsi" required=""><?php echo $data['deskripsi']; ?></textarea>
+          <label>Icon Path</label>
+          <img src="../aeon/path/<?php echo $data['gambar_path']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
+          <input type="file" name="gambar_path" />
+          <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
+        </div>
+        <div>
+          <label>Deskripsi Aeon</label>
+          <textarea name="deskripsi_aeon" required=""><?php echo $data['deskripsi_aeon']; ?></textarea>
         </div>
 
         <div>
           <label>Deskripsi Path</label>
           <textarea name="deskripsi_path" required=""><?php echo $data['deskripsi_path']; ?></textarea>
+        </div>
+
+        <div>
+          <label>Gameplay Path</label>
+          <textarea name="gameplay_path" required=""><?php echo $data['gameplay_path']; ?></textarea>
         </div>
         
         <div>

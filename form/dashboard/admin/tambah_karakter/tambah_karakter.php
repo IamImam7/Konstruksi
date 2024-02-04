@@ -60,6 +60,10 @@
             <label>Path</label>
             <input type="file" name="path_" />
         </div>
+        <div>
+            <label>Nama Path</label>
+            <input type="text" name="path_name" />
+        </div>
 
         <div>
             <label>Elemen</label>

@@ -67,7 +67,7 @@ nav ul li a:hover {
     min-height: 100vh;
     display:flex;
     align-items: center;
-    background-image: url('../img/index/home.jpg');
+    background-image: url('../img/index/home.png');
     background-size:cover;
     background-position: center;
 }
@@ -128,8 +128,8 @@ nav ul li a:hover {
   flex-wrap: wrap;
   align-items: flex-start;
   background: #24285a;
-  border-radius: 4px;
-  padding: 10px;
+  border-radius: 2px;
+  padding: 5px;
   
 }
 .character-portrait {
@@ -138,12 +138,10 @@ nav ul li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 12.5%;
+  width: 15%;
   padding: 15px;
 }
-.character-portrait .character-new {
-  order: -1;
-}
+
 .character-portrait:hover .character-icon {
   background: #4d5fc4;
   -webkit-transform: scale(1.1);
@@ -158,9 +156,8 @@ nav ul li a:hover {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
-.character-list .character-portrait:hover .character-name {
+.character-list .character-portrait:hover .character-name{
   color: #dbddef;
-  text-decoration: none;
 }
 .character-list .character-portrait:hover .character-type,
 .character-list .character-portrait:hover .character-weapon {
@@ -204,7 +201,6 @@ nav ul li a:hover {
   color: #bec1dd;
   margin: 10px 0 0;
   font-size:20px;
-  text-decoration: none;
 }
 
 /*  */

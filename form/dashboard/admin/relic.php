@@ -47,6 +47,7 @@ body{
   background: #4b4276;
   padding: 30px 0px;
   position: fixed;
+  overflow-y: auto;
 }
 
 .wrapper .sidebar h2{

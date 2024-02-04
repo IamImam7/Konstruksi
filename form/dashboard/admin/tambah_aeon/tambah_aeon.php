@@ -58,22 +58,30 @@
 
         <div>
             <label>Gambar Aeon</label>
-            <input type="file" name="gambar" required=""  />
+            <input type="file" name="gambar_aeon" required=""  />
         </div>
 
         <div>
             <label>Path Aeon</label>
             <input type="text" name="path_" />
         </div>
-
+        <div>
+            <label>Icon Path</label>
+            <input type="file" name="gambar_path" required=""  />
+        </div>
         <div>
             <label>Deskripsi Aeon</label>
-            <textarea name="deskripsi"></textarea>
+            <textarea name="deskripsi_aeon"></textarea>
         </div>
 
         <div>
             <label>Deskripsi Path</label>
             <textarea name="deskripsi_path"></textarea>
+        </div>
+
+        <div>
+            <label>Gameplay Path</label>
+            <textarea name="gameplay_path"></textarea>
         </div>
 
         <div>

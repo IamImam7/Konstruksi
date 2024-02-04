@@ -47,6 +47,7 @@ body{
   background: #4b4276;
   padding: 30px 0px;
   position: fixed;
+  overflow-y: auto;
 }
 
 .wrapper .sidebar h2{
@@ -158,7 +159,7 @@ a {
         <h2>Dashboard Admin</h2>
         <ul>
         <li><a href="admin.php">Home</a></li>
-            <li><a href="aeon.php">Aeon</a></li>
+            <li><a href="aeon.php">Aeon & Path</a></li>
             <li><a href="character.php">Karakter</a></li>
             <li><a href="lightcone.php">Update Lightcone</a></li>
             <li><a href="relic.php">Update Relic</a></li>
@@ -168,17 +169,19 @@ a {
     </div>
     <div class="main_content">
         <div class="header">Aeon</div>  
-        <center><a href="tambah_aeon/tambah_aeon.php">+ &nbsp; Tambah Ornament </a></center>
+        <center><a href="tambah_aeon/tambah_aeon.php">+ &nbsp; Tambah Data aeon </a></center>
         <div class="info">
         <table>
                 <thead>
                     <tr>
                         <th>No.</th>
                         <th>Nama</th>
-                        <th>Gambar</th>
+                        <th>Gambar Aeon</th>
                         <th>Path</th>
-                        <th>Deskripsi</th>
+                        <th>Icon Path</th>
+                        <th>Deskripsi Aeon</th>
                         <th>Deskripsi Path</th>
+                        <th>Gameplay Path</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -199,10 +202,12 @@ a {
                 <tr>
                     <td><?php echo $no; ?></td>
                     <td><?php echo $row['nama']; ?></td>
-                    <td><img src="aeon/<?php echo $row['gambar']; ?>" style="width: 120px;"></td>
+                    <td><img src="aeon/aeon/<?php echo $row['gambar_aeon']; ?>" style="width: 120px;"></td>
                     <td><?php echo $row['path_']; ?></td>
-                    <td><?php echo $row['deskripsi']; ?></td>
+                    <td><img src="aeon/path/<?php echo $row['gambar_path']; ?>" style="width: 120px;"></td>
+                    <td><?php echo $row['deskripsi_aeon']; ?></td>
                     <td><?php echo $row['deskripsi_path']; ?></td>
+                    <td><?php echo $row['gameplay_path']; ?></td>
                     <td>
                         <a href="edit_aeon/edit_aeon.php?id=<?php echo $row['id']; ?>">Edit</a>
                         <a href="delete_aeon/proses_delete.php?id=<?php echo $row['id'];?>">Delete</a>

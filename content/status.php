@@ -115,14 +115,16 @@
           $active = 'active';
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<div class="carousel-item ' . $active . '">';
-            echo '<div class="row">';
-            echo '<div class="col text-end" style="margin-top: 30vh;">';
+            echo '<div class="row" style="margin-top: 10vh; margin-bottom: 10vh;">';
+            echo '<div class="col text-end " style="margin-top: 30vh;">';
             echo '<h3 style="color:white;">' . $row['nama'] . '</h3>';
+            echo '<img src="../form/dashboard/admin/aeon/path/' . $row['gambar_path'] . '" class="d-flex" alt="..."  style="width: 60px; height: 60px; float: right">';
+            echo '</br>';
             echo '<h3 style="color:#c1de97;">' . $row['path_'] . '</h3>';
-            echo '<p style="color: #99e3f2;">' . $row['deskripsi'] . '</p>';
+            echo '<p style="color: #99e3f2;">' . $row['deskripsi_aeon'] . '</p>';
             echo '</div>';
             echo '<div class="col">';
-            echo '<img src="../form/dashboard/admin/aeon/' . $row['gambar'] . '" class="d-block w-100" alt="..."  style="height:90%;">';
+            echo '<img src="../form/dashboard/admin/aeon/aeon/' . $row['gambar_aeon'] . '" class="d-block w-100" alt="..."  style="min-height:40vh;">';
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -139,6 +141,68 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <div class="row" >
+      <h2 class="text-center text-uppercase fs-1" style="margin-top: 3vh; color: white;"> Path </h2>
+    </div>
+    <div class="row" style="margin-top: 3vh; color: white; background-color: #2c3e50; border-radius: 10px; ">
+      <div class="col-4 fs-2 text-uppercase text-center" style="color: #f77f23;padding : 4vh;">
+        Apa itu Path?
+        <img src="../img/status/Pom-Pom_Sticker_15.png" alt="pompom" style="width: 40%;"/>
+      </div>
+      <div class="col-8" style="color: white; padding: 4vh;">
+      <span style="color:#fff;">
+          Path dalam Honkai Star Rail adalah kumpulan energi Imajiner yang lahir sebagai manifestasi konsep filosofis secara Universal. Mereka yang meyakini dan mengamalkan konsep-konsep dibalik Path akan menjadi Pathsriders, mengikuti jalan yang berubah sesuai dengan filosofi dan opini mereka sendiri. Dalam beberapa kasus khusus, entitas yang sepenuhnya menjalin diri dengan suatu Path dan mengeksplorasi konsep filosofisnya akan menjadi sebuah Aeon. Aeon, entitas berbentuk Tuhan atau Dewa, terhubung erat dengan Path, dan setelah dinobatkan sebagai Tuhan, mereka dapat menggunakan jalur sesuka hati mereka selama hidup karakter yang terhubung dengan mereka.<br/>>
+      <img src="../img/status/Pom-Pom_Sticker_20.png" alt="pompom" style="width: 20%;" class="text-end"/>
+      </div>
+    </div>
+    <div class="row" >
+      <h2 class="text-center text-uppercase font-weight-bold" style="margin-top: 3vh; color: white;">List Path</h2>
+    </div>
+    <!-- Carousel untuk list path  -->
+    <div id="pathCarousel" class="carousel slide" style="margin-top: 3vh; color: white; background-color: #2c3e50; border-radius: 10px;">
+  <div class="carousel-indicators">
+    <?php
+    // Generate carousel indicators for paths
+    $activePath = 'class="active"';
+    for ($i = 0; $i < mysqli_num_rows($result); $i++) {
+      echo '<button type="button" data-bs-target="#pathCarousel" data-bs-slide-to="' . $i . '" ' . $activePath . ' aria-label="Slide ' . ($i + 1) . '"></button>';
+      $activePath = ''; // Remove 'active' class after the first iteration
+    }
+    ?>
+  </div>
+  <div class="carousel-inner">
+    <?php
+    // Fetch and display carousel items for paths
+    $activePath = 'active';
+    mysqli_data_seek($result, 0); // Reset the result pointer to the beginning
+    while ($rowPath = mysqli_fetch_assoc($result)) {
+      echo '<div class="carousel-item ' . $activePath . '">';
+      echo '<div class="row" style="margin-top: 10vh; margin-bottom: 10vh;">';
+      echo '<div class="col-8 text-end ">';
+      echo '<h3 style="color:white;">' . $rowPath['path_'] . '</h3>';
+      echo '<h4 style="color: #21965a;"> Lore Wise</h4>';
+      echo '<p style="color: #99e3f2;">' . $rowPath['deskripsi_path'] . '</p>';
+      echo '<h4 style="color: #21965a;"> Gameplay </h4>';
+      echo '<p style="color: #99e3f2;">' . $rowPath['gameplay_path'] . '</p>';
+      echo '</div>';
+      echo '<div class="col-4">';
+      echo '<img src="../form/dashboard/admin/aeon/path/' . $rowPath['gambar_path'] . '" class="text-center " alt="..."  style=" width : 50vh">';
+      echo '</div>';
+      echo '</div>';
+      echo '</div>';
+      $activePath = ''; // Remove 'active' class after the first iteration
+    }
+    ?>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#pathCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#pathCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
   </div>
         </section>
   <?php
