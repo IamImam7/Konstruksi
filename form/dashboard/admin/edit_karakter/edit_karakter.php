@@ -83,8 +83,12 @@
         <div>
           <label>Path</label>
           <img src="../karakter/path/<?php echo $data['path_']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
-          <input type="file" name="path" />
+          <input type="file" name="path_" />
           <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
+        </div>
+        <div>
+          <label>Nama Path</label>
+          <input type="text" name="path_name" value="<?php echo $data['path_name']; ?>" autofocus="" required="" />
         </div>
         <div>
           <label>Elemen</label>
@@ -102,12 +106,12 @@
         <div>
           <label>Full Image</label>
           <img src="../karakter/full_image/<?php echo $data['full_image']; ?>" style="width: 120px;float: left;margin-bottom: 5px;">
-          <input type="file" name="icon" />
+          <input type="file" name="fulimage" />
           <i style="float: left;font-size: 11px;color: red">Abaikan jika tidak merubah gambar</i>
         </div>
         <div>
           <label>Deskripsi</label>
-          <input type="text" name="deskripsi" value="<?php echo $data['deskripsi']; ?>" autofocus="" required="" />
+          <textarea name="deskripsi" required=""><?php echo $data['deskripsi']; ?></textarea>
         </div>
         
         <div>

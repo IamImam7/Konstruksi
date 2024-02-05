@@ -2,6 +2,7 @@
     include '../../../koneksi.php';
 
     $nama = $_POST['nama'];
+    $path_name = $_POST['path_name'];
     $path = $_FILES['path_']['name'];
     $elemen = $_FILES['elemen']['name'];
     $icon = $_FILES['icon']['name'];
@@ -39,7 +40,8 @@
             move_uploaded_file($file_tmp_icon, '../karakter/icon/' . $icon);
             move_uploaded_file($file_tmp_full, '../karakter/full_image/' . $fulimage);
 
-            $query = "INSERT INTO karakter_hsr (nama , path_, elemen , icon, full_image, deskripsi) VALUES ('$nama','$path','$elemen','$icon','$fulimage','$deskripsi')";
+            $query = "INSERT INTO karakter_hsr (nama , path_, path_name, elemen , icon, full_image, deskripsi) 
+            VALUES ('$nama','$path','$path_name','$elemen','$icon','$fulimage','$deskripsi')";
 
             $result = mysqli_query($conn, $query);
 
@@ -52,7 +54,8 @@
             echo "<script>alert('Ekstensi Gambar hanya jpg / png');window.location='../character.php';</script>";
         }
     } else {
-        $query = "INSERT INTO karakter_hsr (nama , path_, elemen , icon,full_image, deskripsi) VALUES ('$nama','$path','$elemen','$icon','$fulimage','$deskripsi')";
+        $query = "INSERT INTO karakter_hsr (nama , path_, path_name, elemen , icon, full_image, deskripsi) 
+        VALUES ('$nama','$path','$path_name','$elemen','$icon','$fulimage','$deskripsi')";
 
         $result = mysqli_query($conn, $query);
         if (!$result) {

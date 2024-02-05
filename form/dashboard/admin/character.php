@@ -47,6 +47,7 @@ body{
   background: #4b4276;
   padding: 30px 0px;
   position: fixed;
+  overflow-y: auto;
 }
 
 .wrapper .sidebar h2{
@@ -158,7 +159,8 @@ a {
     <div class="sidebar">
         <h2>Admin Page</h2>
         <ul>
-            <li><a href="admin.php">Home</a></li>
+        <li><a href="admin.php">Home</a></li>
+            <li><a href="aeon.php">Aeon</a></li>
             <li><a href="character.php">Karakter</a></li>
             <li><a href="lightcone.php">Update Lightcone</a></li>
             <li><a href="relic.php">Update Relic</a></li>
@@ -176,6 +178,7 @@ a {
                         <th>No.</th>
                         <th>Nama</th>
                         <th>Path</th>
+                        <th>Nama Path</th>
                         <th>Elemen</th>
                         <th>Icon</th>
                         <th>Full Image</th>
@@ -202,6 +205,7 @@ a {
                     <td><?php echo $no; ?></td>
                     <td><?php echo $row['nama']; ?></td>
                     <td><img src="karakter/path/<?php echo $row['path_']; ?>" style="width: 50px;"></td>
+                    <td><?php echo $row['path_name']; ?></td>
                     <td><img src="karakter/elemen/<?php echo $row['elemen']; ?>" style="width: 50px;"></td>
                     <td><img src="karakter/icon/<?php echo $row['icon']; ?>" style="width: 70px;"></td>
                     <td><img src="karakter/full_image/<?php echo $row['full_image']; ?>" style="width: 150px;"></td>

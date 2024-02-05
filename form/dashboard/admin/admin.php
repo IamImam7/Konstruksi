@@ -44,6 +44,7 @@ body{
   background: #4b4276;
   padding: 30px 0px;
   position: fixed;
+  overflow-y: auto;
 }
 
 .wrapper .sidebar h2{
@@ -136,6 +137,7 @@ a {
         <h2>Admin Page</h2>
         <ul>
         <li><a href="admin.php">Home</a></li>
+            <li><a href="aeon.php">Aeon</a></li>
             <li><a href="character.php">Karakter</a></li>
             <li><a href="lightcone.php">Update Lightcone</a></li>
             <li><a href="relic.php">Update Relic</a></li>
